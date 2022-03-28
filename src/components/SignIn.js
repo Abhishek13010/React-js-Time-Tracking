@@ -1,7 +1,45 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { useState } from 'react'
+import axios from 'axios'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export const SignIn = () => {
+
+    const [email, setemail] = useState('')
+    const [password, setpassword] = useState('')
+    var navigate = useNavigate();
+
+    const login = async (e) => {
+        e.preventDefault();
+        var data = {
+            email: email,
+            password: password
+        }
+        await axios.post('http://localhost:4000/login', data).then((res) => {
+            if (res.data.status == 200) {
+                localStorage.setItem('email', res.data.data.email)
+                localStorage.setItem('firstName', res.data.data.firstName)
+                localStorage.setItem('role', res.data.data.roleName)
+                toast(res.data.msg)
+                setTimeout(() => {
+                    navigate('/')
+                }, 2000);
+
+            }
+            else {
+                console.log("Here!!!")
+                toast(res.data.msg)
+
+                setTimeout(() => {
+                    navigate('/signin')
+                }, 2000);
+            }
+        })
+    }
+
     return (
         <div>
             <body className="">
@@ -30,22 +68,22 @@ export const SignIn = () => {
                                                 </Link>
                                             </li>
                                             <li className="nav-item">
-                                                <Link className="nav-link me-2" to="/">
+                                                <Link className="nav-link me-2" to="/profile">
                                                     <i className="fa fa-user opacity-6 text-dark me-1"></i>
                                                     Profile
                                                 </Link>
                                             </li>
                                             <li className="nav-item">
-                                                <a className="nav-link me-2" href="../pages/sign-up.html">
+                                                <Link className="nav-link me-2" to="/signup">
                                                     <i className="fas fa-user-circle opacity-6 text-dark me-1"></i>
                                                     Sign Up
-                                                </a>
+                                                </Link>
                                             </li>
                                             <li className="nav-item">
-                                                <a className="nav-link me-2" href="../pages/sign-in.html">
+                                                <Link className="nav-link me-2" to="/signin">
                                                     <i className="fas fa-key opacity-6 text-dark me-1"></i>
                                                     Sign In
-                                                </a>
+                                                </Link>
                                             </li>
                                         </ul>
                                         <li className="nav-item d-flex align-items-center">
@@ -75,21 +113,34 @@ export const SignIn = () => {
                                                 <p className="mb-0">Enter your email and password to sign in</p>
                                             </div>
                                             <div className="card-body">
-                                                <form role="form">
+                                                <form role="form" onSubmit={login}>
                                                     <label>Email</label>
                                                     <div className="mb-3">
-                                                        <input type="email" className="form-control" placeholder="Email" aria-label="Email" aria-describedby="email-addon" />
+                                                        <input type="email" className="form-control" placeholder="Email" aria-label="Email" aria-describedby="email-addon" onChange={(e) => { setemail(e.target.value) }} />
                                                     </div>
                                                     <label>Password</label>
                                                     <div className="mb-3">
-                                                        <input type="email" className="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon" />
+                                                        <input type="password" className="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon" onChange={(e) => { setpassword(e.target.value) }} />
                                                     </div>
                                                     <div className="form-check form-switch">
                                                         <input className="form-check-input" type="checkbox" id="rememberMe" checked="" />
                                                         <label className="form-check-label" for="rememberMe">Remember me</label>
                                                     </div>
                                                     <div className="text-center">
-                                                        <button type="button" className="btn bg-gradient-info w-100 mt-4 mb-0">Sign in</button>
+                                                        <button type="submit" className="btn bg-gradient-info w-100 mt-4 mb-0">Sign in</button>
+                                                        <ToastContainer
+                                                            position="top-left"
+                                                            autoClose={1000}
+                                                            hideProgressBar={false}
+                                                            newestOnTop={false}
+                                                            closeOnClick
+                                                            rtl={false}
+                                                            pauseOnFocusLoss
+                                                            draggable
+                                                            pauseOnHover
+                                                        />
+                                                        {/* Same as */}
+                                                        <ToastContainer />
                                                     </div>
                                                 </form>
                                             </div>
@@ -103,7 +154,7 @@ export const SignIn = () => {
                                     </div>
                                     <div className="col-md-6">
                                         <div className="oblique position-absolute top-0 h-100 d-md-block d-none me-n8">
-                                            <div className="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6" style={{backgroundImage:"url('../assets/img/curved-images/curved6.jpg')"}}></div>
+                                            <div className="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6" style={{ backgroundImage: "url('../assets/img/curved-images/curved6.jpg')" }}></div>
                                         </div>
                                     </div>
                                 </div>

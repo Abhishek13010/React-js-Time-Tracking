@@ -37,7 +37,7 @@ export const Navbar = () => {
           </Link>
         </li>
         <li className="nav-item">
-          <a className="nav-link  " href="../pages/tables.html">
+          <Link className="nav-link  " to="/project">
             <div className="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               {/* <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> */}
                 <title>office</title>
@@ -54,7 +54,7 @@ export const Navbar = () => {
               {/* </svg> */}
             </div>
             <span className="nav-link-text ms-1">Project</span>
-          </a>
+          </Link>
         </li>
         <li className="nav-item">
           <a className="nav-link  " href="../pages/billing.html">
@@ -122,7 +122,7 @@ export const Navbar = () => {
           <h6 className="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Account pages</h6>
         </li>
         <li className="nav-item">
-          <a className="nav-link  " href="../pages/profile.html">
+          <Link className="nav-link  " to="/profile">
             <div className="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               {/* <svg width="12px" height="12px" viewBox="0 0 46 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> */}
                 <title>customer-support</title>
@@ -140,10 +140,10 @@ export const Navbar = () => {
               {/* </svg> */}
             </div>
             <span className="nav-link-text ms-1">Profile</span>
-          </a>
+          </Link>
         </li>
         <li className="nav-item">
-          <a className="nav-link  " href="../pages/sign-in.html">
+          <Link className="nav-link  " to="/signin">
             <div className="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               {/* <svg width="12px" height="12px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> */}
                 <title>document</title>
@@ -160,10 +160,10 @@ export const Navbar = () => {
               {/* </svg> */}
             </div>
             <span className="nav-link-text ms-1">Sign In</span>
-          </a>
+          </Link>
         </li>
         <li className="nav-item">
-          <a className="nav-link  " href="../pages/sign-up.html">
+          <Link className="nav-link  " to="/signup">
             <div className="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
               {/* <svg width="12px" height="20px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> */}
                 <title>spaceship</title>
@@ -182,7 +182,7 @@ export const Navbar = () => {
               {/* </svg> */}
             </div>
             <span className="nav-link-text ms-1">Sign Up</span>
-          </a>
+          </Link>
         </li>
       </ul>
     </div>
@@ -946,9 +946,9 @@ export const Navbar = () => {
                 © <script>
                   document.write(new Date().getFullYear())
                 </script>,
-                made with <i className="fa fa-heart"></i> by
-                <a href="https://www.creative-tim.com" className="font-weight-bold" target="_blank">Creative Tim</a>
-                for a better web.
+                made with <i className="fa fa-heart"></i> by Abhishek Prajapati for a better web.
+                {/* <a href="https://www.creative-tim.com" className="font-weight-bold" target="_blank">Creative Tim</a> */}
+                
               </div>
             </div>
             <div className="col-lg-6">

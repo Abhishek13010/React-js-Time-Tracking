@@ -13,6 +13,11 @@ import { UpdateUsers } from './components/UpdateUsers';
 import { DeleteData } from './api/DeleteData';
 import { SignUp } from './components/SignUp';
 import { SignIn } from './components/SignIn';
+import { Profile } from './components/Profile';
+import { Project } from './components/Project';
+import { Common } from './components/Common';
+
+
 
 
 
@@ -36,6 +41,8 @@ function App() {
 
       {/* <Navbar/> */}
       {/* <Home/> */}
+      {/* <Common/> */}
+
 
       {/* <Props1 title={title} name ={name} demo = {demo}/> */}
 
@@ -55,12 +62,14 @@ function App() {
       </header> */}
       <Routes>
 
-        {/* <Route path='/table/delete/:id' element={<DeleteData/>}/>
-        <Route path='/table/update/:id' element={<UpdateUsers/>}/> */}
+        <Route path='/table/delete/:id' element={<DeleteData/>}/>
+        <Route path='/table/update/:id' element={<UpdateUsers/>}/>
         <Route path='/' element={<Navbar/>}/>
         <Route path='/signin' element={<SignIn/>}/>
         <Route path='/signup' element={<SignUp/>}/>
-        {/* <Route path='/dashboard' element={<Home/>}/> */}
+        <Route path='/profile' element={<Profile/>}/>
+        <Route path='/project' element={<Project/>}/>
+        <Route path='/dashboard' element={<Home/>}/>
       </Routes>
    
     </React.Fragment>
